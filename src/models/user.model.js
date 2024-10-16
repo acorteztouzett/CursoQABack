@@ -47,7 +47,7 @@ const UserSchema = new mongoose.Schema(
       sparse: true,
       match: [
         /* Detects most of the phone numbers all over the world */
-        /(?:([+]\d{1,4})[-.\s]?)?(?:[(](\d{1,3})[)][-.\s]?)?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})/g,
+        /^9\d{2}\s?\d{3}\s?\d{3}$/,
         "Please provide a valid phone number.",
       ],
     },

@@ -13,7 +13,7 @@ const contactSchema = Joi.object({
     .required()
     .trim()
     .regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s']+$/)
-    .error(new Error("Please provide a valid name.")),
+    .error(new Error("Por favor brinde un nombre válido (Solo letras).")),
 
   // Contact Information
   email: Joi.string()
@@ -22,7 +22,7 @@ const contactSchema = Joi.object({
   phone: Joi.string()
     .trim()
     .regex(
-      /^(?:([+]\d{1,4})[-.\s]?)?(?:[(](\d{1,3})[)][-.\s]?)?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})/,
+      /^9\d{2}\s?\d{3}\s?\d{3}$/,
     ),
   birthday: Joi.string().trim(),
   address: Joi.object({
