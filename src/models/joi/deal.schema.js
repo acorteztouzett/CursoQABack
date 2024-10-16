@@ -20,21 +20,9 @@ const dealSchema = Joi.object({
 
   // Deal Associations
   assignee: Joi.object(),
-  company: Joi.string()
-    .custom((value, helper) => {
-      if (!mongoose.Types.ObjectId.isValid(value)) {
-        return helper.error('Invalid Company reference.');
-      }
-      return value;
-    }),
-  contact: Joi.string()
-    .custom((value, helper) => {
-      if (!mongoose.Types.ObjectId.isValid(value)) {
-        return helper.error('Invalid Contact reference.');
-      }
-      return value;
-    }),
-  // Deal Stages and Tracking
+  company: Joi.string(),
+  contact: Joi.object(),
+  
   stage: Joi.string(),
   type: Joi.string(),
   nextStep: Joi.string().trim().optional(),
